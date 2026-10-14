@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>Akıllı TYT Koçu</title>
+<style>
+:root{--bg:#0b1120;--panel:#131d30;--panel2:#19263b;--text:#f3f6fc;--muted:#9eacc2;--accent:#8b9cff;--green:#6fe0b0;--line:#29364d;--red:#ff9292}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 90% 0%,#1d2a49 0,transparent 35%),var(--bg);color:var(--text);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:960px;margin:auto;padding:18px 14px 90px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 0 22px}.brand{display:flex;gap:11px;align-items:center}.logo{width:45px;height:45px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,#a2adff,#6fe0b0);color:#101827;font-weight:900;font-size:21px}.eyebrow{color:var(--green);font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}.top h1{font-size:21px;margin:2px 0}.date{font-size:12px;color:var(--muted);text-align:right}.hero{background:linear-gradient(135deg,#24365a,#17263b 70%);border:1px solid #344565;border-radius:24px;padding:22px;margin-bottom:16px}.hero h2{font-size:25px;line-height:1.15;margin:8px 0}.hero p{color:#c0cce0;margin:8px 0 16px}.pill{display:inline-flex;gap:6px;align-items:center;border:1px solid #455b7d;border-radius:999px;padding:5px 10px;font-size:12px;color:#dce6ff}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 18px}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:15px}.stat .num{font-size:25px;font-weight:800;margin-top:4px}.muted{color:var(--muted);font-size:13px}.section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:22px 2px 10px}.section-title h3{margin:0;font-size:17px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card h3{margin:0 0 8px;font-size:16px}.progress{height:8px;background:#27344a;border-radius:20px;overflow:hidden;margin:10px 0}.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--green));width:0%;border-radius:20px}.btn{border:0;border-radius:12px;padding:11px 14px;font-weight:750;background:var(--accent);color:#101827}.btn.secondary{background:#26354d;color:var(--text);border:1px solid #3a4a64}.btn.small{padding:7px 10px;font-size:13px}.btn.danger{background:#4a2634;color:#ffdce2}.nav{position:fixed;bottom:0;left:0;right:0;background:#0d1525ee;backdrop-filter:blur(16px);border-top:1px solid var(--line);display:flex;justify-content:center;gap:5px;padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:5}.nav button{flex:1;max-width:180px;border:0;border-radius:12px;background:transparent;color:var(--muted);padding:9px 4px;font-size:12px}.nav button.active{background:#263651;color:white}.nav span{display:block;font-size:18px;margin-bottom:2px}.page{display:none}.page.active{display:block}.task{display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.task:last-child{border-bottom:0}.task input[type=checkbox]{width:20px;height:20px;accent-color:var(--green);margin-top:2px}.task.done .tasktext{text-decoration:line-through;color:var(--muted)}.tasktext{flex:1}.tag{display:inline-block;font-size:11px;padding:3px 7px;border-radius:7px;background:#273752;color:#cdd9f1;margin-top:4px}.field{display:grid;gap:6px;margin:10px 0}.field label{font-size:13px;color:#c5d1e4}.field input,.field select{width:100%;border:1px solid #3a4a64;border-radius:11px;padding:11px;background:#0e1727;color:var(--text);min-width:0}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.notice{border:1px solid #5b5031;background:#2b281d;color:#f4e4ae;padding:12px;border-radius:13px;font-size:13px}.result{background:#202e45;border-radius:14px;padding:14px;margin-top:12px}.big{font-size:28px;font-weight:850}.empty{padding:20px;text-align:center;color:var(--muted)}.photo-preview{max-width:100%;max-height:360px;display:block;border-radius:12px;margin-top:12px}.footer{text-align:center;color:#77869e;font-size:12px;margin-top:22px}
+@media(min-width:700px){.app{padding-top:26px}.hero{padding:28px}.hero h2{font-size:32px}.stats{gap:14px}.stat,.card{padding:19px}}
+@media(max-width:430px){.stats{gap:7px}.stat{padding:11px}.stat .num{font-size:21px}.grid{grid-template-columns:1fr}.hero h2{font-size:23px}.formgrid{grid-template-columns:1fr}.date{max-width:85px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+  <div class="brand"><div class="logo">A</div><div><div class="eyebrow">Kişisel eğitim koçun</div><h1>Akıllı TYT Koçu</h1></div></div>
+  <div class="date" id="today"></div>
+</header>
+
+<main>
+<section class="page active" id="home">
+  <div class="hero">
+    <span class="pill">✦ Sürüm 1.0 · Ücretsiz</span>
+    <h2>Bugün küçük bir adım,<br>hedefe daha yakın.</h2>
+    <p>TYT ve 11. sınıf çalışmalarını tek yerden takip et. Planını tamamladıkça ilerlemen kaydedilir.</p>
+    <button class="btn" onclick="showPage('tasks')">Bugünkü planıma git →</button>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="muted">Görevler</div><div class="num" id="taskStat">0/0</div><div class="muted">tamamlandı</div></div>
+    <div class="stat"><div class="muted">Deneme</div><div class="num" id="examStat">0</div><div class="muted">kaydedildi</div></div>
+    <div class="stat"><div class="muted">Son TYT neti</div><div class="num" id="netStat">—</div><div class="muted">4 yanlış = 1 doğru</div></div>
+  </div>
+  <div class="section-title"><h3>Çalışma alanların</h3></div>
+  <div class="grid">
+    <div class="card"><h3>📘 TYT</h3><div class="muted">Türkçe · Matematik · Sosyal · Fen</div><div class="progress"><span id="tytBar"></span></div><div class="muted" id="tytPct">Görevlerini tamamladıkça ilerler.</div></div>
+    <div class="card"><h3>🎓 11. sınıf</h3><div class="muted">Yazılı hazırlığı ve okul konuları</div><div class="progress"><span id="schoolBar"></span></div><div class="muted" id="schoolPct">Görevlerini tamamladıkça ilerler.</div></div>
+  </div>
+  <div class="section-title"><h3>Koçunun hatırlatması</h3></div>
+  <div class="card"><p style="margin:0">Bir konuyu bitirmek kadar, öğrendiğini soruyla kontrol etmek de önemli. Bugün görevlerin tamamı bitmezse sorun değil; kalanları gerçekçi biçimde yeniden planla.</p></div>
+</section>
+
+<section class="page" id="tasks">
+  <div class="section-title"><h3>✅ Çalışma planım</h3><button class="btn small" onclick="openTaskForm()">+ Görev ekle</button></div>
+  <div class="card" id="taskForm" style="display:none;margin-bottom:12px">
+    <h3>Yeni görev</h3>
+    <div class="field"><label>Görev adı</label><input id="newTaskName" placeholder="Örn. TYT matematik: bölünebilme"></div>
+    <div class="formgrid"><div class="field"><label>Alan</label><select id="newTaskArea"><option value="TYT">TYT</option><option value="11. Sınıf">11. Sınıf</option></select></div><div class="field"><label>Ders</label><select id="newTaskSubject"><option>Matematik</option><option>Türkçe</option><option>Fizik</option><option>Kimya</option><option>Biyoloji</option><option>Edebiyat</option><option>Tarih</option><option>Coğrafya</option><option>Felsefe</option><option>Din Kültürü</option><option>Geometri</option><option>Diğer</option></select></div></div>
+    <button class="btn" onclick="addTask()">Görevi kaydet</button> <button class="btn secondary" onclick="openTaskForm(false)">Vazgeç</button>
+  </div>
+  <div class="card"><div class="section-title" style="margin-top:0"><h3>Bugünkü görevler</h3><span class="muted" id="taskCount"></span></div><div id="taskList"></div><div style="margin-top:12px"><button class="btn secondary small" onclick="resetTasks()">Görevleri yeni güne taşı / sıfırla</button></div></div>
+  <div class="notice" style="margin-top:12px">İpucu: Yazılı konularını öğretmeninin verdiği listeye göre görev olarak ekle. Bu uygulama henüz okul müfredatını otomatik bilmiyor.</div>
+</section>
+
+<section class="page" id="exam">
+  <div class="section-title"><h3>📝 Deneme sonuçlarım</h3></div>
+  <div class="card">
+    <p class="muted" style="margin-top:0">Bir deneme çözdükten sonra ders başına doğru, yanlış ve boş sayılarını gir. Net: doğru − yanlış / 4.</p>
+    <div class="field"><label>Deneme adı</label><input id="examName" placeholder="Örn. TYT Denemesi 1"></div>
+    <div class="field"><label>Tür</label><select id="examType"><option value="TYT">TYT denemesi</option><option value="11. Sınıf">11. sınıf yazılı provası</option></select></div>
+    <div class="formgrid">
+      <div class="field"><label>Türkçe / Edebiyat — doğru</label><input id="turD" type="number" min="0" value="0"></div><div class="field"><label>Yanlış</label><input id="turY" type="number" min="0" value="0"></div>
+      <div class="field"><label>Matematik — doğru</label><input id="matD" type="number" min="0" value="0"></div><div class="field"><label>Yanlış</label><input id="matY" type="number" min="0" value="0"></div>
+      <div class="field"><label>Sosyal — doğru</label><input id="sosD" type="number" min="0" value="0"></div><div class="field"><label>Yanlış</label><input id="sosY" type="number" min="0" value="0"></div>
+      <div class="field"><label>Fen — doğru</label><input id="fenD" type="number" min="0" value="0"></div><div class="field"><label>Yanlış</label><input id="fenY" type="number" min="0" value="0"></div>
+    </div>
+    <button class="btn" onclick="saveExam()">Sonucu kaydet</button>
+    <div class="result" id="liveResult"><div class="muted">Güncel net önizlemesi</div><div class="big" id="liveNet">0,00 net</div></div>
+  </div>
+  <div class="section-title"><h3>Geçmiş sonuçlar</h3></div><div class="card" id="examList"><div class="empty">Henüz deneme kaydetmedin.</div></div>
+</section>
+
+<section class="page" id="photo">
+  <div class="section-title"><h3>📷 Fotoğraf laboratuvarı</h3></div>
+  <div class="card">
+    <h3>Soru veya defter fotoğrafı ekle</h3>
+    <p class="muted">Fotoğrafı seçip önizleyebilirsin. Bu ilk sürüm görüntüyü yapay zekâ ile henüz analiz etmez.</p>
+    <div class="field"><label>Fotoğraf seç</label><input type="file" id="photoInput" accept="image/*" capture="environment"></div>
+    <img id="photoPreview" class="photo-preview" alt="Seçilen fotoğraf önizlemesi" hidden>
+    <div id="photoMessage" class="muted" style="margin-top:10px">Fotoğrafın net ve yazıların okunaklı olmasına dikkat et.</div>
+    <div style="margin-top:12px"><button class="btn secondary" onclick="clearPhoto()">Fotoğrafı kaldır</button></div>
+  </div>
+  <div class="notice" style="margin-top:12px">Sonraki sürümde güvenli bir yapay zekâ bağlantısı ekleyerek soruyu okuma, çözüm adımlarını açıklama ve hata türünü belirleme özelliği geliştirebiliriz. Gizli API anahtarlarını bu HTML dosyasına koymayacağız.</div>
+</section>
+
+<section class="page" id="progress">
+  <div class="section-title"><h3>📈 Gelişim raporum</h3></div>
+  <div class="grid">
+    <div class="card"><div class="muted">Toplam görev</div><div class="big" id="pTasks">0</div></div>
+    <div class="card"><div class="muted">Tamamlanan görev</div><div class="big" id="pDone">0</div></div>
+  </div>
+  <div class="section-title"><h3>Deneme geçmişi</h3></div><div class="card" id="progressExams"><div class="empty">Sonuç kaydedildikçe burada görünecek.</div></div>
+  <div class="section-title"><h3>Verilerim</h3></div>
+  <div class="card"><p class="muted">Kayıtlar bu tarayıcının yerel hafızasında tutulur. Tarayıcı verilerini temizlersen kayıtların silinebilir. Yedek almak için dışa aktarabilirsin.</p><button class="btn secondary" onclick="exportData()">Verilerimi dışa aktar</button> <button class="btn secondary" onclick="document.getElementById('importFile').click()">Yedek yükle</button><input id="importFile" type="file" accept="application/json" hidden></div>
+</section>
+</main>
+<div class="footer">Akıllı TYT Koçu · İlk çalışan prototip · Verilerin bu cihazda saklanır.</div>
+</div>
+<nav class="nav">
+<button class="active" data-page="home" onclick="showPage('home')"><span>⌂</span>Ana sayfa</button>
+<button data-page="tasks" onclick="showPage('tasks')"><span>☑</span>Planım</button>
+<button data-page="exam" onclick="showPage('exam')"><span>✎</span>Deneme</button>
+<button data-page="photo" onclick="showPage('photo')"><span>▧</span>Fotoğraf</button>
+<button data-page="progress" onclick="showPage('progress')"><span>↗</span>Gelişim</button>
+</nav>
+<script>
+const KEY='akilliTytCoach_v1';
+const defaultTasks=[
+{id:1,name:'Paragraf soruları çöz',area:'TYT',subject:'Türkçe',done:false},
+{id:2,name:'Matematik konu tekrarı + test',area:'TYT',subject:'Matematik',done:false},
+{id:3,name:'11. sınıf: bugünkü dersleri tekrar et',area:'11. Sınıf',subject:'Diğer',done:false},
+{id:4,name:'Eksik olduğun bir konudan 15 soru çöz',area:'TYT',subject:'Diğer',done:false}
+];
+let data=loadData();
+function loadData(){try{const x=JSON.parse(localStorage.getItem(KEY));return x&&Array.isArray(x.tasks)&&Array.isArray(x.exams)?x:{tasks:defaultTasks,exams:[]}}catch(e){return {tasks:defaultTasks,exams:[]}}}
+function saveData(){localStorage.setItem(KEY,JSON.stringify(data));render()}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'});render()}
+function openTaskForm(show=true){document.getElementById('taskForm').style.display=show?'block':'none'}
+function addTask(){const name=document.getElementById('newTaskName').value.trim();if(!name){alert('Önce görev adını yaz.');return}data.tasks.push({id:Date.now(),name,area:document.getElementById('newTaskArea').value,subject:document.getElementById('newTaskSubject').value,done:false});document.getElementById('newTaskName').value='';openTaskForm(false);saveData()}
+function toggleTask(id,checked){const t=data.tasks.find(t=>t.id===id);if(t)t.done=checked;saveData()}
+function deleteTask(id){data.tasks=data.tasks.filter(t=>t.id!==id);saveData()}
+function resetTasks(){if(confirm('Görevlerin tamamlanma işaretleri sıfırlansın mı? Görevler silinmez.')){data.tasks.forEach(t=>t.done=false);saveData()}}
+function val(id){const n=Number(document.getElementById(id).value);return Number.isFinite(n)&&n>=0?Math.floor(n):0}
+function examStats(){const keys=[['turD','turY'],['matD','matY'],['sosD','sosY'],['fenD','fenY']];let d=0,y=0;keys.forEach(k=>{d+=val(k[0]);y+=val(k[1])});return {d,y,net:d-y/4}}
+function updateLive(){const s=examStats();document.getElementById('liveNet').textContent=s.net.toLocaleString('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2})+' net'}
+function saveExam(){const name=document.getElementById('examName').value.trim()||'İsimsiz deneme';const type=document.getElementById('examType').value;const s=examStats();if(type==='TYT'&&(s.d+s.y>120)){alert('TYT için toplam doğru ve yanlış 120’yi geçemez. Sayıları kontrol et.');return}if(type==='11. Sınıf'&&(s.d+s.y===0)){alert('Sonuç kaydetmek için en az bir doğru veya yanlış gir.');return}const subjects={};[['Türkçe / Edebiyat','turD','turY'],['Matematik','matD','matY'],['Sosyal','sosD','sosY'],['Fen','fenD','fenY']].forEach(([n,d,y])=>subjects[n]={d:val(d),y:val(y),net:val(d)-val(y)/4});data.exams.unshift({id:Date.now(),name,type,date:new Date().toLocaleDateString('tr-TR'),...s,subjects});saveData();document.getElementById('examName').value='';alert('Deneme sonucu kaydedildi!')}
+function renderTasks(){const list=document.getElementById('taskList');document.getElementById('taskCount').textContent=data.tasks.filter(t=>t.done).length+'/'+data.tasks.length+' tamamlandı';if(!data.tasks.length){list.innerHTML='<div class="empty">Henüz görev yok. “Görev ekle” ile başlayabilirsin.</div>';return}list.innerHTML=data.tasks.map(t=>`<div class="task ${t.done?'done':''}"><input type="checkbox" ${t.done?'checked':''} onchange="toggleTask(${t.id},this.checked)" aria-label="Görevi tamamla"><div class="tasktext"><div>${esc(t.name)}</div><span class="tag">${esc(t.area)} · ${esc(t.subject)}</span></div><button class="btn danger small" onclick="deleteTask(${t.id})" aria-label="Görevi sil">Sil</button></div>`).join('')}
+function renderExams(){const html=data.exams.map(e=>`<div class="task"><div class="tasktext"><strong>${esc(e.name)}</strong><div class="muted">${esc(e.date)} · ${esc(e.type)}</div><div class="tag">${e.d} doğru · ${e.y} yanlış</div></div><div style="text-align:right"><div class="big" style="font-size:21px">${e.net.toLocaleString('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2})}</div><div class="muted">net</div><button class="btn danger small" onclick="deleteExam(${e.id})">Sil</button></div></div>`).join('')||'<div class="empty">Henüz deneme kaydetmedin.</div>';document.getElementById('examList').innerHTML=html;document.getElementById('progressExams').innerHTML=html}
+function deleteExam(id){data.exams=data.exams.filter(e=>e.id!==id);saveData()}
+function render(){const total=data.tasks.length,done=data.tasks.filter(t=>t.done).length;document.getElementById('taskStat').textContent=done+'/'+total;document.getElementById('examStat').textContent=data.exams.length;const latest=data.exams.find(e=>e.type==='TYT');document.getElementById('netStat').textContent=latest?latest.net.toLocaleString('tr-TR',{maximumFractionDigits:1}):'—';const tyt=data.tasks.filter(t=>t.area==='TYT'),sch=data.tasks.filter(t=>t.area==='11. Sınıf');const pct=a=>a.length?Math.round(a.filter(t=>t.done).length/a.length*100):0;document.getElementById('tytBar').style.width=pct(tyt)+'%';document.getElementById('schoolBar').style.width=pct(sch)+'%';document.getElementById('tytPct').textContent=pct(tyt)+'% görev tamamlandı';document.getElementById('schoolPct').textContent=pct(sch)+'% görev tamamlandı';document.getElementById('pTasks').textContent=total;document.getElementById('pDone').textContent=done;renderTasks();renderExams()}
+function exportData(){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='akilli-tyt-kocu-yedek.json';a.click();URL.revokeObjectURL(a.href)}
+document.getElementById('importFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const j=JSON.parse(await f.text());if(!Array.isArray(j.tasks)||!Array.isArray(j.exams))throw Error();data=j;saveData();alert('Yedek yüklendi.')}catch(err){alert('Bu dosya geçerli bir Akıllı TYT Koçu yedeği değil.')}e.target.value=''});
+document.getElementById('photoInput').addEventListener('change',e=>{const f=e.target.files[0],img=document.getElementById('photoPreview'),msg=document.getElementById('photoMessage');if(!f)return;if(!f.type.startsWith('image/')){msg.textContent='Lütfen bir görsel dosyası seç.';return}img.src=URL.createObjectURL(f);img.hidden=false;msg.textContent='Fotoğraf seçildi: '+f.name+' · Henüz yapay zekâ analizi yapılmıyor.'});
+function clearPhoto(){document.getElementById('photoInput').value='';const img=document.getElementById('photoPreview');if(img.src)URL.revokeObjectURL(img.src);img.removeAttribute('src');img.hidden=true;document.getElementById('photoMessage').textContent='Fotoğrafın net ve yazıların okunaklı olmasına dikkat et.'}
+['turD','turY','matD','matY','sosD','sosY','fenD','fenY'].forEach(id=>document.getElementById(id).addEventListener('input',updateLive));
+document.getElementById('today').textContent=new Date().toLocaleDateString('tr-TR',{weekday:'short',day:'numeric',month:'short'});
+render();updateLive();
+</script>
+</body>
+</html>
